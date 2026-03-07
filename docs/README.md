@@ -1,7 +1,7 @@
 # Host-Based Intrusion Detection System (HIDS)
 
 ## Overview
-A comprehensive HIDS with agent-server architecture for Ubuntu 22.04 LTS.
+A comprehensive HIDS with agent-server architecture for Fedora 40/41 (and compatible RHEL-based distributions).
 
 ## Features
 - ✅ File Integrity Monitoring (FIM)
@@ -17,7 +17,7 @@ A comprehensive HIDS with agent-server architecture for Ubuntu 22.04 LTS.
 ```
 ┌─────────────┐         ┌─────────────┐
 │  HIDS Agent │ ──────▶ │ HIDS Server │
-│  (Ubuntu)   │  JSON   │  (Flask)    │
+│  (Fedora)   │  JSON   │  (Flask)    │
 └─────────────┘         └─────────────┘
                               │
                         ┌─────▼─────┐
@@ -29,9 +29,14 @@ A comprehensive HIDS with agent-server architecture for Ubuntu 22.04 LTS.
 ## Installation
 
 ### Prerequisites
-- Ubuntu 22.04 LTS
+- Fedora 40/41 (or compatible RHEL-based distro)
 - Python 3.10+
 - Root access (for agent)
+
+### Install System Packages (Fedora)
+```bash
+sudo dnf install -y python3 python3-pip python3-virtualenv lsof
+```
 
 ### Quick Start
 

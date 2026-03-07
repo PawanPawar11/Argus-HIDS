@@ -6,11 +6,11 @@ AGENT FILES (agent/)
 □ config.json
 □ main.py
 □ modules/__init__.py
-□ modules/file_monitor.py
 □ modules/auth_monitor.py
-□ modules/process_monitor.py
-□ modules/network_monitor.py
+□ modules/file_monitor.py
 □ modules/network_client.py
+□ modules/network_monitor.py
+□ modules/process_monitor.py
 
 SERVER FILES (server/)
 ----------------------
@@ -21,9 +21,10 @@ SERVER FILES (server/)
 □ dashboard/templates/index.html
 □ dashboard/static/css/dashboard.css
 □ dashboard/static/js/dashboard.js
-□ tools/db_manager.py
 □ tools/configure_email.py
+□ tools/db_manager.py
 □ tools/backup_db.sh
+□ auth_manager.py
 
 TEST FILES (tests/)
 -------------------
@@ -34,8 +35,8 @@ TEST FILES (tests/)
 TOOL FILES (tools/)
 -------------------
 □ monitor_events.py
-□ query_events.py
 □ network_analysis.py
+□ query_events.py
 
 DOCUMENTATION (docs/)
 ---------------------
@@ -44,12 +45,3 @@ DOCUMENTATION (docs/)
 □ USER_MANUAL.md
 □ TESTING_REPORT.md
 □ MITRE_MAPPING.md
-
-NEXT STEPS:
------------
-1. Copy all Python files from the artifacts/conversation
-2. Configure agent/config.json with your settings
-3. Run: python3 server/tools/configure_email.py
-4. Start server: cd server/api && python3 server.py
-5. Start agent: cd agent && sudo python3 main.py
-6. Access dashboard: http://localhost:5000
