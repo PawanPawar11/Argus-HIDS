@@ -27,7 +27,6 @@
     "auth_monitor": {
         "enabled": true,
         "log_files": [
-            "/var/log/auth.log",
             "/var/log/secure"
         ],
         "position_file": "data/auth_log_position.json",
@@ -57,8 +56,8 @@
         "whitelist_processes": [
             "systemd",
             "sshd",
-            "cron",
-            "apache2",
+            "crond",
+            "httpd",
             "nginx",
             "mysql",
             "postgres"

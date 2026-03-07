@@ -370,6 +370,7 @@ def main():
     if os.geteuid() != 0:
         print("[WARNING] Agent is not running as root. Some monitoring features may not work.")
         print("[WARNING] Run with: sudo python3 main.py")
+        print("[WARNING] On Fedora, ensure the script has access to /var/log/secure (requires root or adm group)")
         print()
     
     # Initialize agent

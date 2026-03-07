@@ -305,7 +305,8 @@ class NetworkMonitor:
                     if remote_port not in self.allowed_outbound_ports and not self.is_private_ip(remote_ip):
                         # Only alert for non-common processes
                         process_name = conn.get('process_name', '').lower()
-                        if process_name not in ['chrome', 'firefox', 'apt', 'dpkg', 'snap']:
+                        # Skip common system processes (Fedora/RHEL equivalents)
+                        if process_name not in ['chrome', 'firefox', 'dnf', 'rpm', 'packagekitd']:
                             events.append({
                                 'event_type': 'unusual_outbound_connection',
                                 'severity': 'medium',

@@ -21,7 +21,8 @@ class AuthenticationMonitor:
             config: Configuration dictionary
         """
         self.config = config
-        self.log_files = config.get('log_files', ['/var/log/auth.log'])
+        # Fedora/RHEL uses /var/log/secure instead of Ubuntu's /var/log/auth.log
+        self.log_files = config.get('log_files', ['/var/log/secure'])
         self.position_file = config.get('position_file', 'data/auth_log_position.json')
         self.brute_force_threshold = config.get('brute_force_threshold', 5)
         self.brute_force_window = config.get('brute_force_window', 300)  # 5 minutes
@@ -480,7 +481,7 @@ class AuthenticationMonitor:
 # Test function
 if __name__ == "__main__":
     test_config = {
-        'log_files': ['/var/log/auth.log'],
+        'log_files': ['/var/log/secure'],  # Fedora/RHEL log path
         'position_file': 'data/auth_log_position.json',
         'brute_force_threshold': 3,
         'brute_force_window': 300,
