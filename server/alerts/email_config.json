@@ -1,0 +1,24 @@
+{
+    "enabled": true,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "sender_email": "ajinkyalearn1122@gmail.com",
+    "sender_password": "${EMAIL_PASSWORD}",
+    "recipient_emails": [
+        "banking142@gmail.com"
+    ],
+    "alert_on_severity": [
+        "critical"
+    ],
+    "alert_on_event_types": [
+        "brute_force_attack",
+        "cryptocurrency_miner_detected",
+        "port_scan_detected",
+        "reverse_shell_detected",
+        "file_modified",
+        "user_account_created"
+    ],
+    "alert_cooldown_minutes": 5,
+    "include_mitre_info": true
+}

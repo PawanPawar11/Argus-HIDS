@@ -1,0 +1,55 @@
+HIDS Project - File Checklist
+==============================
+
+AGENT FILES (agent/)
+--------------------
+□ config.json
+□ main.py
+□ modules/__init__.py
+□ modules/file_monitor.py
+□ modules/auth_monitor.py
+□ modules/process_monitor.py
+□ modules/network_monitor.py
+□ modules/network_client.py
+
+SERVER FILES (server/)
+----------------------
+□ api/server.py
+□ database/models.py
+□ alerts/email_alerts.py
+□ alerts/email_config.json
+□ dashboard/templates/index.html
+□ dashboard/static/css/dashboard.css
+□ dashboard/static/js/dashboard.js
+□ tools/db_manager.py
+□ tools/configure_email.py
+□ tools/backup_db.sh
+
+TEST FILES (tests/)
+-------------------
+□ simulate_attacks.sh
+□ simulate_process_attacks.sh
+□ simulate_network_attacks.sh
+
+TOOL FILES (tools/)
+-------------------
+□ monitor_events.py
+□ query_events.py
+□ network_analysis.py
+
+DOCUMENTATION (docs/)
+---------------------
+□ README.md
+□ INSTALLATION.md
+□ USER_MANUAL.md
+□ TESTING_REPORT.md
+□ MITRE_MAPPING.md
+
+NEXT STEPS:
+-----------
+1. Copy all Python files from the artifacts/conversation
+2. Configure agent/config.json with your settings
+3. Run: python3 server/tools/configure_email.py
+4. Start server: cd server/api && python3 server.py
+5. Start agent: cd agent && sudo python3 main.py
+6. Access dashboard: http://localhost:5000

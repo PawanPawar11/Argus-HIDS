@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIDS SOC Dashboard - Enhanced Real-Time Monitoring</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="pulse-ring"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>HIDS Dashboard</h1>
+                    <span class="logo-subtitle">Security Operations Center</span>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="threat-level-indicator">
+                    <span class="threat-label">Threat Level:</span>
+                    <span class="threat-badge" id="threatLevel">LOW</span>
+                </div>
+                <div class="time-range-selector">
+                    <select id="timeRange" onchange="changeTimeRange()">
+                        <option value="1h">Last Hour</option>
+                        <option value="6h">Last 6 Hours</option>
+                        <option value="24h" selected>Last 24 Hours</option>
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                    </select>
+                </div>
+                <button class="btn-sound-toggle" onclick="toggleSound()" title="Toggle sound alerts">
+                    <i class="fas fa-volume-up" id="soundIcon"></i>
+                </button>
+                <div class="header-info">
+                    <span class="status-badge status-active">
+                        <i class="fas fa-circle"></i> System Active
+                    </span>
+                    <span class="last-update" id="lastUpdate">Last update: --:--:--</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Alert Banner -->
+    <div class="alert-banner" id="alertBanner" style="display: none;">
+        <div class="alert-content">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="alertMessage"></span>
+        </div>
+        <button class="alert-close" onclick="closeAlert()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Enhanced Summary Cards with Sparklines -->
+        <div class="summary-cards">
+            <div class="card card-total">
+                <div class="card-header-row">
+                    <div class="card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-trend" id="totalTrend">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 id="totalEvents">0</h3>
+                    <p>Total Events</p>
+                    <canvas id="sparklineTotal" class="sparkline"></canvas>
+                </div>
+            </div>
+
+            <div class="card card-critical">
+                <div class="card-header-row">
+                    <div class="card-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="card-trend critical" id="criticalTrend">
+                        <i class="fas fa-arrow-up"></i> 5%
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 id="criticalEvents">0</h3>
+                    <p>Critical Events</p>
+                    <canvas id="sparklineCritical" class="sparkline"></canvas>
+                </div>
+            </div>
+
+            <div class="card card-agents">
+                <div class="card-header-row">
+                    <div class="card-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="card-status-grid">
+                        <span class="mini-status active" id="agentsActive">0</span>
+                        <span class="mini-status inactive" id="agentsInactive">0</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 id="activeAgents">0</h3>
+                    <p>Active Agents</p>
+                    <canvas id="sparklineAgents" class="sparkline"></canvas>
+                </div>
+            </div>
+
+            <div class="card card-today">
+                <div class="card-header-row">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="card-trend" id="todayTrend">
+                        <i class="fas fa-arrow-down"></i> 3%
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 id="todayEvents">0</h3>
+                    <p>Events Today</p>
+                    <canvas id="sparklineToday" class="sparkline"></canvas>
+                </div>
+            </div>
+
+            <!-- New: Attack Surface Card -->
+            <div class="card card-surface">
+                <div class="card-header-row">
+                    <div class="card-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 id="attackSurface">0</h3>
+                    <p>Attack Vectors</p>
+                    <div class="attack-types">
+                        <span class="attack-type-badge">Network: <strong id="networkAttacks">0</strong></span>
+                        <span class="attack-type-badge">File: <strong id="fileAttacks">0</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New: Response Time Card -->
+            <div class="card card-response">
+                <div class="card-header-row">
+                    <div class="card-icon">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 id="avgResponseTime">0s</h3>
+                    <p>Avg Response Time</p>
+                    <div class="response-indicator">
+                        <div class="response-bar">
+                            <div class="response-fill" id="responseFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Panel -->
+        <div class="quick-actions-panel">
+            <div class="action-group">
+                <button class="action-btn primary" onclick="exportReport()">
+                    <i class="fas fa-file-export"></i>
+                    Export Report
+                </button>
+                <button class="action-btn" onclick="showIncidentTimeline()">
+                    <i class="fas fa-timeline"></i>
+                    Incident Timeline
+                </button>
+                <button class="action-btn" onclick="showThreatHunting()">
+                    <i class="fas fa-search"></i>
+                    Threat Hunting
+                </button>
+                <button class="action-btn" onclick="showForensics()">
+                    <i class="fas fa-microscope"></i>
+                    Forensics View
+                </button>
+            </div>
+            <div class="live-feed-toggle">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="liveFeedToggle" checked onchange="toggleLiveFeed()">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">
+                    <i class="fas fa-broadcast-tower"></i> Live Feed
+                </span>
+            </div>
+        </div>
+
+        <!-- Real-Time Event Stream -->
+        <div class="event-stream-section">
+            <div class="section-header">
+                <h2><i class="fas fa-stream"></i> Live Event Stream</h2>
+                <div class="stream-controls">
+                    <button class="btn-stream-control" onclick="pauseStream()" id="pauseBtn">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button class="btn-stream-control" onclick="clearStream()">
+                        <i class="fas fa-eraser"></i> Clear
+                    </button>
+                    <span class="stream-counter">
+                        <i class="fas fa-signal"></i> <span id="streamCount">0</span> events
+                    </span>
+                </div>
+            </div>
+            <div class="event-stream" id="eventStream">
+                <div class="stream-placeholder">Waiting for events...</div>
+            </div>
+        </div>
+
+        <!-- Charts Row with Enhanced Interactivity -->
+        <div class="charts-row">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h2><i class="fas fa-chart-pie"></i> Events by Severity</h2>
+                    <div class="chart-controls">
+                        <button class="chart-btn" onclick="toggleChartAnimation('severity')">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <canvas id="severityChart"></canvas>
+                <div class="chart-legend" id="severityLegend"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h2><i class="fas fa-chart-bar"></i> Events by Type</h2>
+                    <div class="chart-controls">
+                        <select class="chart-select" id="typeChartLimit" onchange="updateTypeChart()">
+                            <option value="5">Top 5</option>
+                            <option value="8" selected>Top 8</option>
+                            <option value="10">Top 10</option>
+                        </select>
+                    </div>
+                </div>
+                <canvas id="typeChart"></canvas>
+            </div>
+        </div>
+
+        <!-- MITRE ATT&CK and Timeline with Heatmap -->
+        <div class="charts-row">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h2><i class="fas fa-bullseye"></i> MITRE ATT&CK Techniques</h2>
+                    <div class="chart-controls">
+                        <button class="chart-btn" onclick="showMitreDetails()">
+                            <i class="fas fa-info-circle"></i> Details
+                        </button>
+                    </div>
+                </div>
+                <canvas id="mitreChart"></canvas>
+                <div class="mitre-tactics" id="mitreTactics"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h2><i class="fas fa-chart-line"></i> Event Timeline & Heatmap</h2>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-view="line" onclick="switchTimelineView('line')">
+                            <i class="fas fa-chart-line"></i>
+                        </button>
+                        <button class="chart-btn" data-view="bar" onclick="switchTimelineView('bar')">
+                            <i class="fas fa-chart-bar"></i>
+                        </button>
+                    </div>
+                </div>
+                <canvas id="timelineChart"></canvas>
+                <div class="timeline-heatmap" id="timelineHeatmap"></div>
+            </div>
+        </div>
+
+        <!-- Advanced Analytics Section -->
+        <div class="analytics-section">
+            <div class="analytics-grid">
+                <!-- Anomaly Detection -->
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <h3><i class="fas fa-brain"></i> Anomaly Detection</h3>
+                        <span class="analytics-badge" id="anomalyCount">0 detected</span>
+                    </div>
+                    <div class="anomaly-list" id="anomalyList">
+                        <div class="loading">Analyzing patterns...</div>
+                    </div>
+                </div>
+
+                <!-- Geolocation Map -->
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <h3><i class="fas fa-globe"></i> Geographic Distribution</h3>
+                        <button class="analytics-btn" onclick="refreshGeoMap()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="geo-map" id="geoMap">
+                        <div class="geo-stats">
+                            <div class="geo-stat">
+                                <span class="geo-label">Unique IPs</span>
+                                <span class="geo-value" id="uniqueIPs">0</span>
+                            </div>
+                            <div class="geo-stat">
+                                <span class="geo-label">Countries</span>
+                                <span class="geo-value" id="uniqueCountries">0</span>
+                            </div>
+                            <div class="geo-stat">
+                                <span class="geo-label">High-Risk</span>
+                                <span class="geo-value critical" id="highRiskIPs">0</span>
+                            </div>
+                        </div>
+                        <div class="country-list" id="countryList"></div>
+                    </div>
+                </div>
+
+                <!-- Correlation Engine -->
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <h3><i class="fas fa-project-diagram"></i> Event Correlation</h3>
+                        <span class="analytics-badge" id="correlationCount">0 chains</span>
+                    </div>
+                    <div class="correlation-viz" id="correlationViz">
+                        <div class="loading">Processing correlations...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Events and Agents Grid -->
+        <div class="content-row">
+            <!-- Recent Critical Events with Action Buttons -->
+            <div class="events-container">
+                <div class="section-header">
+                    <h2><i class="fas fa-bell"></i> Critical Events Feed</h2>
+                    <div class="section-controls">
+                        <button class="btn-icon" onclick="acknowledgeAll()" title="Acknowledge all">
+                            <i class="fas fa-check-double"></i>
+                        </button>
+                        <button class="btn-refresh" onclick="loadDashboard()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                <div id="criticalEventsList" class="events-list">
+                    <div class="loading">Loading events...</div>
+                </div>
+            </div>
+
+            <!-- Active Agents with Health Monitoring -->
+            <div class="agents-container">
+                <div class="section-header">
+                    <h2><i class="fas fa-network-wired"></i> Agent Health Monitor</h2>
+                    <div class="agent-view-toggle">
+                        <button class="toggle-btn active" data-view="grid" onclick="switchAgentView('grid')">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="toggle-btn" data-view="list" onclick="switchAgentView('list')">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="agentsList" class="agents-list grid-view">
+                    <div class="loading">Loading agents...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Filtering and Search -->
+        <div class="full-width-section">
+            <div class="section-header">
+                <h2><i class="fas fa-search-plus"></i> Advanced Event Search</h2>
+                <div class="search-stats">
+                    <span id="searchResultCount">0</span> results
+                </div>
+            </div>
+            
+            <div class="advanced-filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label><i class="fas fa-exclamation-circle"></i> Severity</label>
+                        <select id="severityFilter" onchange="applyFilters()">
+                            <option value="">All Severities</option>
+                            <option value="critical">Critical</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="info">Info</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-tag"></i> Event Type</label>
+                        <select id="typeFilter" onchange="applyFilters()">
+                            <option value="">All Types</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-server"></i> Agent</label>
+                        <select id="agentFilter" onchange="applyFilters()">
+                            <option value="">All Agents</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-bullseye"></i> MITRE Technique</label>
+                        <select id="mitreFilter" onchange="applyFilters()">
+                            <option value="">All Techniques</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group search-group">
+                        <label><i class="fas fa-search"></i> Search</label>
+                        <input type="text" id="searchBox" placeholder="Search events, IPs, files..." onkeyup="applyFilters()">
+                    </div>
+                    
+                    <button class="btn-clear-filters" onclick="clearFilters()">
+                        <i class="fas fa-times-circle"></i> Clear
+                    </button>
+                </div>
+            </div>
+            
+            <div class="events-table-container">
+                <table class="events-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" onclick="sortTable('timestamp')">
+                                Time <i class="fas fa-sort"></i>
+                            </th>
+                            <th class="sortable" onclick="sortTable('severity')">
+                                Severity <i class="fas fa-sort"></i>
+                            </th>
+                            <th class="sortable" onclick="sortTable('type')">
+                                Type <i class="fas fa-sort"></i>
+                            </th>
+                            <th>Agent</th>
+                            <th>MITRE</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                        <tr><td colspan="7" class="loading">Loading events...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination-controls">
+                <button class="btn-page" onclick="previousPage()">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="page-info">
+                    Page <span id="currentPage">1</span> of <span id="totalPages">1</span>
+                </span>
+                <button class="btn-page" onclick="nextPage()">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Detail Modal -->
+    <div class="modal" id="eventDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-alt"></i> Event Details</h2>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="eventDetailBody">
+                <!-- Event details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal" onclick="acknowledgeEvent()">
+                    <i class="fas fa-check"></i> Acknowledge
+                </button>
+                <button class="btn-modal" onclick="createIncident()">
+                    <i class="fas fa-exclamation-triangle"></i> Create Incident
+                </button>
+                <button class="btn-modal secondary" onclick="closeModal()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

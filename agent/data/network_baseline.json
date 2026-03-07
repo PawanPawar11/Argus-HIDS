@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-01-28T09:59:16.752837",
+  "listening_ports": [
+    53,
+    5000,
+    631,
+    631
+  ],
+  "common_connections": {}
+}

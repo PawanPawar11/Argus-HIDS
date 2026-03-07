@@ -1,0 +1,61 @@
+# Virtual environments
+
+venv/
+.env/
+.envrc
+.venv/
+
+# Python cache
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+
+# Build / distribution
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+
+*.log
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Environment variables
+
+.env
+
+# Testing
+
+.coverage
+htmlcov/
+.pytest_cache/
+
+# IDE / Editor
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Temporary files
+
+tmp/
+temp/
+
+# Local data that shouldn't be tracked
+
+data/*
+!data/.gitkeep
