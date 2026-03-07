@@ -1,47 +1,64 @@
-HIDS Project - File Checklist
-==============================
+|==============================================|
+|                  Argus-HIDS                  |
+|==============================================|
 
-AGENT FILES (agent/)
---------------------
-□ config.json
-□ main.py
-□ modules/__init__.py
-□ modules/auth_monitor.py
-□ modules/file_monitor.py
-□ modules/network_client.py
-□ modules/network_monitor.py
-□ modules/process_monitor.py
+Project Structure
+-----------------
 
-SERVER FILES (server/)
-----------------------
-□ api/server.py
-□ database/models.py
-□ alerts/email_alerts.py
-□ alerts/email_config.json
-□ dashboard/templates/index.html
-□ dashboard/static/css/dashboard.css
-□ dashboard/static/js/dashboard.js
-□ tools/configure_email.py
-□ tools/db_manager.py
-□ tools/backup_db.sh
-□ auth_manager.py
-
-TEST FILES (tests/)
--------------------
-□ simulate_attacks.sh
-□ simulate_process_attacks.sh
-□ simulate_network_attacks.sh
-
-TOOL FILES (tools/)
--------------------
-□ monitor_events.py
-□ network_analysis.py
-□ query_events.py
-
-DOCUMENTATION (docs/)
----------------------
-□ README.md
-□ INSTALLATION.md
-□ USER_MANUAL.md
-□ TESTING_REPORT.md
-□ MITRE_MAPPING.md
+.
+├── agent
+│   ├── config.json
+│   ├── main.py
+│   └── modules
+│       ├── __init__.py
+│       ├── auth_monitor.py
+│       ├── file_monitor.py
+│       ├── network_client.py
+│       ├── network_monitor.py
+│       └── process_monitor.py
+│
+├── server
+│   ├── api
+│   │   └── server.py
+│   │
+│   ├── database
+│   │   └── models.py
+│   │
+│   ├── alerts
+│   │   ├── email_alerts.py
+│   │   └── email_config.json
+│   │
+│   ├── dashboard
+│   │   ├── templates
+│   │   │   └── index.html
+│   │   │
+│   │   └── static
+│   │       ├── css
+│   │       │   └── dashboard.css
+│   │       │
+│   │       └── js
+│   │           └── dashboard.js
+│   │
+│   ├── tools
+│   │   ├── configure_email.py
+│   │   ├── db_manager.py
+│   │   └── backup_db.sh
+│   │
+│   └── auth_manager.py
+│
+├── tests
+│   ├── simulate_attacks.sh
+│   ├── simulate_process_attacks.sh
+│   └── simulate_network_attacks.sh
+│
+├── tools
+│   ├── monitor_events.py
+│   ├── network_analysis.py
+│   └── query_events.py
+│
+└── docs
+    ├── README.md
+    ├── INSTALLATION.md
+    ├── USER_MANUAL.md
+    ├── TESTING_REPORT.md
+    └── MITRE_MAPPING.md
