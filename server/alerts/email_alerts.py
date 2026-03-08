@@ -66,9 +66,9 @@ class EmailAlertManager:
             'smtp_server': 'smtp.gmail.com',
             'smtp_port': 587,
             'use_tls': True,
-            'sender_email': 'ajinkyalearn1122@gmail.com',
+            'sender_email': 'your-sender@gmail.com',
             'sender_password': '${EMAIL_PASSWORD}' ,
-            'recipient_emails': ['banking142@gmail.com'],
+            'recipient_emails': ['your-recipient@example.com'],
             'alert_on_severity': ['critical', 'high'],
             'alert_on_event_types': [
                 'brute_force_attack',

@@ -21,8 +21,9 @@ app = Flask(__name__,
             template_folder='../dashboard/templates',
             static_folder='../dashboard/static')
 
-# Secret key for session management (change this in production!)
-app.secret_key = 'your-secret-key-change-in-production-2026'
+# Secret key for session management
+# On Fedora/production: export HIDS_SECRET_KEY=$(python3 -c "import secrets; print(secrets.token_hex(32))")
+app.secret_key = os.environ.get('HIDS_SECRET_KEY', 'change-this-in-production-use-env-var')
 app.config['SESSION_COOKIE_SECURE'] = False  # Set to True in production with HTTPS
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
@@ -606,7 +607,13 @@ def print_banner():
     print("    - analyst / analyst (SOC Analyst)")
     print("    - viewer / viewer (Read Only)")
     print("  " + "-"*66)
-    print("  Access Points:")
+    print("  Fedora Notes:")
+    print("    - Run as root or ensure SELinux allows port 5000")
+    print("    - Set secret key: export HIDS_SECRET_KEY=$(python3 -c \"import secrets; print(secrets.token_hex(32))\")")
+    print("    - Set email password: export EMAIL_PASSWORD='your-app-password'")
+    print("    - To allow port 5000 through firewalld:")
+    print("      sudo firewall-cmd --add-port=5000/tcp --permanent && sudo firewall-cmd --reload")
+    print("  " + "-"*66)
     print("    - http://localhost:5000/login  (Login Page)")
     print("    - http://localhost:5000/       (Dashboard - Auth Required)")
     print("    - http://localhost:5000/health (Health Check - Public)")
@@ -626,5 +633,6 @@ def print_banner():
 if __name__ == '__main__':
     print_banner()
     
-    # Run server
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # NOTE: Set debug=False in production. On Fedora, debug=True is fine for local testing only.
+    debug_mode = os.environ.get('HIDS_DEBUG', 'false').lower() == 'true'
+    app.run(host='0.0.0.0', port=5000, debug=debug_mode)

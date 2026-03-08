@@ -46,6 +46,8 @@ def configure_email_alerts():
         print("\n📧 Gmail selected")
         print("⚠️  Note: You need to create an App Password")
         print("   Visit: https://myaccount.google.com/apppasswords")
+        print("   Tip (Fedora): You can also set the password as an env var instead:")
+        print("   export EMAIL_PASSWORD='your-app-password'  (add to ~/.bashrc to persist)")
     elif choice == "2":
         config['smtp_server'] = 'smtp-mail.outlook.com'
         config['smtp_port'] = 587

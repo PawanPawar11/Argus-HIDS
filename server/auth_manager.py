@@ -86,26 +86,28 @@ class AuthManager:
     
     def create_default_users(self):
         """
-        Create default users if they don't exist
+        Create default users if they don't exist.
+        WARNING: Change these passwords immediately after first login.
+        On Fedora production systems, disable or delete these accounts after setup.
         """
         default_users = [
             {
                 'username': 'admin',
-                'password': 'admin',
+                'password': 'admin',  # CHANGE IMMEDIATELY
                 'role': 'admin',
                 'full_name': 'System Administrator',
                 'email': 'admin@hids.local'
             },
             {
                 'username': 'analyst',
-                'password': 'analyst',
+                'password': 'analyst',  # CHANGE IMMEDIATELY
                 'role': 'analyst',
                 'full_name': 'SOC Analyst',
                 'email': 'analyst@hids.local'
             },
             {
                 'username': 'viewer',
-                'password': 'viewer',
+                'password': 'viewer',  # CHANGE IMMEDIATELY
                 'role': 'viewer',
                 'full_name': 'Security Viewer',
                 'email': 'viewer@hids.local'

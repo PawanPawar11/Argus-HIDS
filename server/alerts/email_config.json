@@ -3,10 +3,10 @@
     "smtp_server": "smtp.gmail.com",
     "smtp_port": 587,
     "use_tls": true,
-    "sender_email": "ajinkyalearn1122@gmail.com",
+    "sender_email": "your-sender@gmail.com",
     "sender_password": "${EMAIL_PASSWORD}",
     "recipient_emails": [
-        "banking142@gmail.com"
+        "your-recipient@example.com"
     ],
     "alert_on_severity": [
         "critical"
