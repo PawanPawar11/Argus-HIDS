@@ -90,10 +90,10 @@ sudo bash simulate_network_attacks.sh
 ```
 
 ## Documentation
-- [Installation Guide](docs/INSTALLATION.md)
-- [User Manual](docs/USER_MANUAL.md)
-- [Testing Report](docs/TESTING_REPORT.md)
-- [MITRE Mapping](docs/MITRE_MAPPING.md)
+- [Installation Guide](./INSTALLATION.md)
+- [User Manual](./USER_MANUAL.md)
+- [Testing Report](./TESTING_REPORT.md)
+- [MITRE Mapping](./MITRE_MAPPING.md)
 
 ## Project Structure
 ```
