@@ -9,6 +9,8 @@ echo "=========================================="
 echo "HIDS Attack Simulation Test Script"
 echo "=========================================="
 echo ""
+echo -e "${YELLOW}[NOTE]${NC} Fedora dependencies: sudo dnf install -y nmap-ncat sshpass bc"
+echo ""
 
 # Colors for output
 RED='\033[0;31m'
@@ -59,10 +61,10 @@ EOF
 
 chmod +x /tmp/ssh_bruteforce.sh
 
-# Install sshpass if not available
+# Install sshpass if not available (Fedora)
 if ! command -v sshpass &> /dev/null; then
     echo "Installing sshpass..."
-    apt-get install -y sshpass > /dev/null 2>&1
+    dnf install -y sshpass > /dev/null 2>&1
 fi
 
 # Run brute force simulation

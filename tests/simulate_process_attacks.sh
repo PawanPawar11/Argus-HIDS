@@ -10,6 +10,8 @@ echo "=========================================="
 echo "HIDS Process Attack Simulation"
 echo "=========================================="
 echo ""
+echo -e "${YELLOW}[NOTE]${NC} Fedora dependencies: sudo dnf install -y bc nmap-ncat"
+echo ""
 
 # Colors
 RED='\033[0;31m'
@@ -60,7 +62,9 @@ echo -e "${GREEN}[TEST 2]${NC} Suspicious Process Name"
 echo "Creating process with suspicious name..."
 
 # Copy a harmless command to a suspicious name
-cp /bin/sleep /tmp/xmrig
+# On Fedora, 'sleep' is at /usr/bin/sleep (not /bin/sleep)
+SLEEP_BIN=$(which sleep 2>/dev/null || echo /usr/bin/sleep)
+cp "$SLEEP_BIN" /tmp/xmrig
 chmod +x /tmp/xmrig
 
 # Run it
@@ -115,17 +119,18 @@ sleep 2
 ###############################################################################
 echo -e "${GREEN}[TEST 5]${NC} Netcat Listener (Reverse Shell Simulation)"
 
-# Check if netcat is installed
-if command -v nc &> /dev/null; then
-    echo "Starting netcat listener on port 9999..."
+# Check if ncat or nc is installed (Fedora uses ncat from nmap-ncat)
+if command -v ncat &> /dev/null || command -v nc &> /dev/null; then
+    NC_CMD=$(command -v ncat || command -v nc)
+    echo "Starting netcat/ncat listener on port 9999..."
     
-    # Start netcat listener in background (will be killed soon)
-    timeout 15 nc -l -p 9999 &
+    # ncat: port is positional argument; nc uses -p flag
+    timeout 15 $NC_CMD -l 9999 &
     NC_PID=$!
     
-    echo -e "${GREEN}[SUCCESS]${NC} Netcat listener started (PID: $NC_PID)"
+    echo -e "${GREEN}[SUCCESS]${NC} Listener started on port 9999 (PID: $NC_PID)"
 else
-    echo -e "${YELLOW}[SKIP]${NC} Netcat not installed, skipping test"
+    echo -e "${YELLOW}[SKIP]${NC} Netcat/ncat not installed — install with: sudo dnf install -y nmap-ncat"
 fi
 
 echo ""
@@ -159,7 +164,9 @@ echo -e "${GREEN}[TEST 7]${NC} SUID Binary in Suspicious Location"
 echo "Creating SUID binary in /tmp..."
 
 # Copy a safe binary and set SUID bit
-cp /bin/echo /tmp/suid_test
+# On Fedora, echo is at /usr/bin/echo
+ECHO_BIN=$(which echo 2>/dev/null || echo /usr/bin/echo)
+cp "$ECHO_BIN" /tmp/suid_test
 chmod u+s /tmp/suid_test
 
 # Run it
@@ -223,8 +230,10 @@ echo -e "${YELLOW}[INFO]${NC} Cleaning up test processes..."
 pkill -f cpu_stress.sh
 killall bc 2>/dev/null
 
-# Kill other test processes
-kill $SUSPICIOUS_PID 2>/dev/null
+# Kill netcat/ncat (Fedora uses ncat)
+kill $NC_PID 2>/dev/null
+killall ncat 2>/dev/null
+killall nc 2>/dev/null
 kill $TMP_PID 2>/dev/null
 kill $NC_PID 2>/dev/null
 kill $HIDDEN_PID 2>/dev/null

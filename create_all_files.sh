@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 echo "Creating all project files with placeholders..."
@@ -7,7 +6,7 @@ echo "Creating all project files with placeholders..."
 cat > agent/config.json << 'AGENTCONFIG'
 {
     "agent": {
-        "name": "ubuntu-agent-01",
+        "name": "fedora-agent-01",
         "server_url": "http://localhost:5000/api/events",
         "scan_interval": 60
     },
@@ -19,7 +18,7 @@ cat > agent/config.json << 'AGENTCONFIG'
     },
     "auth_monitor": {
         "enabled": true,
-        "log_files": ["/var/log/auth.log"],
+        "log_files": ["/var/log/secure"],
         "position_file": "data/auth_log_position.json",
         "brute_force_threshold": 5,
         "brute_force_window": 300,
@@ -36,7 +35,7 @@ cat > agent/config.json << 'AGENTCONFIG'
         "check_crypto_miners": true,
         "check_reverse_shells": true,
         "check_privilege_escalation": true,
-        "whitelist_processes": ["systemd", "sshd"],
+        "whitelist_processes": ["systemd", "sshd", "crond", "httpd"],
         "suspicious_process_names": ["nc", "netcat", "xmrig"],
         "suspicious_commands": ["bash -i", "/dev/tcp"],
         "suspicious_paths": ["/tmp", "/var/tmp"],
@@ -77,13 +76,27 @@ touch server/tools/configure_email.py
 
 cat > server/tools/backup_db.sh << 'BACKUPSH'
 #!/bin/bash
+# HIDS Database Backup Script
+# Compatible with Fedora/RHEL (requires: gzip — install with: sudo dnf install -y gzip)
+
 BACKUP_DIR="database/backups"
 DB_FILE="database/hids.db"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
 mkdir -p $BACKUP_DIR
+
+if [ ! -f "$DB_FILE" ]; then
+    echo "❌ Database file not found: $DB_FILE"
+    exit 1
+fi
+
 cp $DB_FILE "$BACKUP_DIR/hids_backup_$TIMESTAMP.db"
 gzip "$BACKUP_DIR/hids_backup_$TIMESTAMP.db"
-echo "✅ Backup created"
+echo "✅ Backup created: $BACKUP_DIR/hids_backup_$TIMESTAMP.db.gz"
+
+# Remove backups older than 30 days
+find "$BACKUP_DIR" -name "hids_backup_*.db.gz" -mtime +30 -delete
+echo "🧹 Old backups (>30 days) cleaned up"
 BACKUPSH
 
 chmod +x server/tools/backup_db.sh
@@ -103,4 +116,3 @@ echo "✅ All placeholder files created!"
 echo ""
 echo "File structure:"
 find . -type f -not -path "./venv/*" -not -name "*.pyc" | grep -E "\.(py|json|sh|html|css|js)$" | sort
-

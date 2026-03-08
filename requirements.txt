@@ -3,4 +3,5 @@ psutil==5.9.6
 requests==2.31.0
 schedule==1.2.0
 watchdog==3.0.0
-pyinotify==0.9.6
+# NOTE: pyinotify removed — it is unmaintained and broken on Linux kernel 5.x+
+# watchdog (above) provides inotify-based file watching on Fedora/Linux natively

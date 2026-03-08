@@ -10,6 +10,9 @@ echo "=========================================="
 echo "HIDS Network Attack Simulation"
 echo "=========================================="
 echo ""
+echo -e "${YELLOW}[NOTE]${NC} Fedora dependencies: sudo dnf install -y nmap nmap-ncat"
+echo -e "${YELLOW}[NOTE]${NC} On Fedora, 'nc' is provided by nmap-ncat — syntax: ncat -l PORT (not nc -l -p PORT)"
+echo ""
 
 # Colors
 RED='\033[0;31m'
@@ -55,19 +58,21 @@ sleep 3
 echo -e "${GREEN}[TEST 2]${NC} Connection to Suspicious Port"
 echo "Attempting connection to port 4444..."
 
-if command -v nc &> /dev/null; then
-    # Start listener on suspicious port
-    timeout 20 nc -l -p 4444 &
+if command -v ncat &> /dev/null || command -v nc &> /dev/null; then
+    NC_CMD=$(command -v ncat || command -v nc)
+    # Fedora/ncat: port is positional; BSD nc uses -p flag
+    # ncat -l PORT  vs  nc -l -p PORT
+    timeout 20 $NC_CMD -l 4444 &
     NC_LISTENER=$!
     
     sleep 2
     
     # Connect to it
-    echo "test" | timeout 2 nc localhost 4444 &
+    echo "test" | timeout 2 $NC_CMD localhost 4444 &
     
     echo -e "${GREEN}[SUCCESS]${NC} Suspicious port connection (4444) established"
 else
-    echo -e "${YELLOW}[SKIP]${NC} Netcat not available"
+    echo -e "${YELLOW}[SKIP]${NC} Netcat/ncat not available — install with: sudo dnf install -y nmap-ncat"
 fi
 
 echo ""
@@ -107,8 +112,9 @@ sleep 2
 echo -e "${GREEN}[TEST 5]${NC} New Listening Port"
 echo "Opening new listening port 8888..."
 
-if command -v nc &> /dev/null; then
-    timeout 30 nc -l -p 8888 &
+if command -v ncat &> /dev/null || command -v nc &> /dev/null; then
+    NC_CMD=$(command -v ncat || command -v nc)
+    timeout 30 $NC_CMD -l 8888 &
     NEW_LISTENER=$!
     
     echo -e "${GREEN}[SUCCESS]${NC} New listening port 8888 opened (PID: $NEW_LISTENER)"
@@ -128,16 +134,17 @@ sleep 2
 echo -e "${GREEN}[TEST 6]${NC} Tor Port Activity Simulation"
 echo "Simulating Tor network activity..."
 
-if command -v nc &> /dev/null; then
-    timeout 15 nc -l -p 9050 &
+if command -v ncat &> /dev/null || command -v nc &> /dev/null; then
+    NC_CMD=$(command -v ncat || command -v nc)
+    timeout 15 $NC_CMD -l 9050 &
     TOR_SIM=$!
     
     sleep 1
-    echo "test" | timeout 2 nc localhost 9050 &
+    echo "test" | timeout 2 $NC_CMD localhost 9050 &
     
     echo -e "${GREEN}[SUCCESS]${NC} Tor port activity simulated (PID: $TOR_SIM)"
 else
-    echo -e "${YELLOW}[SKIP]${NC} Netcat not available"
+    echo -e "${YELLOW}[SKIP]${NC} Netcat/ncat not available — install with: sudo dnf install -y nmap-ncat"
 fi
 
 echo ""
@@ -149,16 +156,17 @@ sleep 2
 echo -e "${GREEN}[TEST 7]${NC} Proxy Port Activity"
 echo "Simulating proxy connection..."
 
-if command -v nc &> /dev/null; then
-    timeout 15 nc -l -p 3128 &
+if command -v ncat &> /dev/null || command -v nc &> /dev/null; then
+    NC_CMD=$(command -v ncat || command -v nc)
+    timeout 15 $NC_CMD -l 3128 &
     PROXY_SIM=$!
     
     sleep 1
-    echo "CONNECT test" | timeout 2 nc localhost 3128 &
+    echo "CONNECT test" | timeout 2 $NC_CMD localhost 3128 &
     
     echo -e "${GREEN}[SUCCESS]${NC} Proxy port activity simulated (PID: $PROXY_SIM)"
 else
-    echo -e "${YELLOW}[SKIP]${NC} Netcat not available"
+    echo -e "${YELLOW}[SKIP]${NC} Netcat/ncat not available — install with: sudo dnf install -y nmap-ncat"
 fi
 
 echo ""
@@ -185,16 +193,17 @@ sleep 2
 echo -e "${GREEN}[TEST 9]${NC} Suspicious Port Range"
 echo "Opening listeners on suspicious port range..."
 
-if command -v nc &> /dev/null; then
+if command -v ncat &> /dev/null || command -v nc &> /dev/null; then
+    NC_CMD=$(command -v ncat || command -v nc)
     # Open listeners on multiple suspicious ports
     for port in 5555 6666 31337; do
-        timeout 20 nc -l -p $port &>/dev/null &
+        timeout 20 $NC_CMD -l $port &>/dev/null &
         echo "  Opened port $port"
     done
     
     echo -e "${GREEN}[SUCCESS]${NC} Multiple suspicious ports opened"
 else
-    echo -e "${YELLOW}[SKIP]${NC} Netcat not available"
+    echo -e "${YELLOW}[SKIP]${NC} Netcat/ncat not available — install with: sudo dnf install -y nmap-ncat"
 fi
 
 echo ""
@@ -230,8 +239,10 @@ sleep 30
 ###############################################################################
 echo -e "${YELLOW}[INFO]${NC} Cleaning up..."
 
-# Kill all netcat processes
+# Kill all netcat/ncat processes
+killall ncat 2>/dev/null
 killall nc 2>/dev/null
+pkill -f "ncat -l" 2>/dev/null
 pkill -f "nc -l" 2>/dev/null
 
 # Kill specific processes
