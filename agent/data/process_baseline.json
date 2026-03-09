@@ -1,0 +1,1537 @@
+{
+  "created_at": "2026-03-09T18:36:44.389294",
+  "processes": {
+    "systemd": {
+      "count": 3,
+      "typical_user": "root"
+    },
+    "kthreadd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "pool_workqueue_release": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-rcu_gp": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-sync_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-kvfree_rcu_reclaim": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-slub_flushwq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-netns": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:0-btrfs-compressed-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-mm_percpu_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "rcu_preempt": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "rcu_exp_par_gp_kthread_worker/0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "rcu_exp_gp_kthread_worker": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/4": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/4": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/4": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/4": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/4:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/4:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/6": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/6": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/6": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/6": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/6:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/6:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/8": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/8": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/8": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/8": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/8:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/8:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/10": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/10": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/10": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/10": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/10:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/10:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/1:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/1:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/3:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/3:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/5": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/5": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/5": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/5": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/5:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/7": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/7": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/7": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/7": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/7:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/9": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/9": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/9": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/9": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cpuhp/11": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "idle_inject/11": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "migration/11": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksoftirqd/11": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/11:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/11:0H-events_highpri": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kdevtmpfs": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-inet_frag_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "rcu_tasks_kthread": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "rcu_tasks_rude_kthread": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "rcu_tasks_trace_kthread": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kauditd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "oom_reaper": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:2-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-writeback": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kcompactd0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ksmd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "khugepaged": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-blkcg_punt_bio": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-kintegrityd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "irq/9-acpi": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/1:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-tpm_dev_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-ata_sff": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-md_bitmap": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-md": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-edac-poller": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-devfreq_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "watchdogd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-quota_events_unbound": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "irq/25-AMD-Vi0-Evt": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "irq/26-AMD-Vi0-PPR": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "irq/27-AMD-Vi0-GA": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kswapd0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-cryptd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/7:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-kthrotld": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-acpi_thermal_pm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/4:2-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "scsi_eh_0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-scsi_tmf_0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "scsi_eh_1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-scsi_tmf_1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-dm_bufio_cache": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-mld": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/4:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-ipv6_addrconf": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/4:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:4-btrfs-compressed-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-kstrp": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/3:1-mm_percpu_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/8:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/5:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/6:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/8:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/1:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/7:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/6:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/10:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/11:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/5:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/3:1H-kblockd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "irq/59-ELAN0718:00": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:2-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/7:2-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-nvme-wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-nvme-reset-wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-nvme-delete-wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-nvme-auth-wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:5-btrfs-compressed-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-worker": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-delalloc": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-flush_delalloc": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-cache": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-fixup": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-endio": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-endio-meta": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-rmw": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-compressed-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-freespace-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-delayed-meta": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-btrfs-qgroup-rescan": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "btrfs-cleaner": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "btrfs-transaction": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:6-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:7-btrfs-compressed-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:8-btrfs-compressed-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:9-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-ttm": {
+      "count": 2,
+      "typical_user": "root"
+    },
+    "card1-crtc0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "card1-crtc1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "card1-crtc2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "card1-crtc3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-amdgpu-reset-dev": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-amdgpu_dm_hpd_rx_offload_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-dm_vblank_control_workqueue": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "card2-crtc0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "card2-crtc1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "card2-crtc2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "card2-crtc3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-gfx": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.0.0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.1.0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.2.0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.3.0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.0.1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.1.1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.2.1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-comp_1.3.1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-sdma0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-vcn_dec": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-vcn_enc0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-vcn_enc1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-jpeg_dec": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/10:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/10:4-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "systemd-journald": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/8:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/6:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "systemd-userdbd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "systemd-udevd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:10+events_unbound": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:13-btrfs-compressed-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:14-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:15-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u48:17-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "psimon": {
+      "count": 4,
+      "typical_user": "root"
+    },
+    "(udev-worker)": {
+      "count": 40,
+      "typical_user": "root"
+    },
+    "kworker/11:2-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-cfg80211": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:2-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "jbd2/nvme0n1p8-8": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-ext4-rsv-conversion": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "irq/81-rtw89_pci": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "systemd-resolved": {
+      "count": 1,
+      "typical_user": "systemd-resolve"
+    },
+    "auditd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "dbus-broker-launch": {
+      "count": 3,
+      "typical_user": "pawanpawar"
+    },
+    "kworker/7:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "dbus-broker": {
+      "count": 3,
+      "typical_user": "pawanpawar"
+    },
+    "avahi-daemon": {
+      "count": 2,
+      "typical_user": "avahi"
+    },
+    "bluetoothd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "iio-sensor-proxy": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "irqbalance": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "chronyd": {
+      "count": 1,
+      "typical_user": "chrony"
+    },
+    "low-memory-monitor": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "polkitd": {
+      "count": 1,
+      "typical_user": "polkitd"
+    },
+    "rtkit-daemon": {
+      "count": 1,
+      "typical_user": "rtkit"
+    },
+    "smartd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "switcheroo-control": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "systemd-machined": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "udisksd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "upowerd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "accounts-daemon": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "systemd-logind": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "alsactl": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "abrtd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ModemManager": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "firewalld": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "abrt-dump-journal-core": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "abrt-dump-journal-oops": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "abrt-dump-journal-xorg": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-rpciod": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/R-xprtiod": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "NetworkManager": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "wpa_supplicant": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "cupsd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "gssproxy": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "tuned": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "tuned-ppd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "rsyslogd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "atd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "crond": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "gdm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "uresourced": {
+      "count": 2,
+      "typical_user": "pawanpawar"
+    },
+    "krfcommd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "colord": {
+      "count": 1,
+      "typical_user": "colord"
+    },
+    "pcscd": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "geoclue": {
+      "count": 1,
+      "typical_user": "geoclue"
+    },
+    "kworker/u49:4-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:6-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "gdm-session-worker": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "(sd-pam)": {
+      "count": 2,
+      "typical_user": "root"
+    },
+    "gnome-keyring-daemon": {
+      "count": 2,
+      "typical_user": "pawanpawar"
+    },
+    "gdm-wayland-session": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "kworker/5:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "gnome-session-init-worker": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gnome-session-ctl": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gnome-session-service": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfsd": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfsd-fuse": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "pipewire": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "wireplumber": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gnome-shell": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "at-spi-bus-launcher": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "at-spi2-registryd": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "xdg-permission-store": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gnome-shell-calendar-server": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "evolution-source-registry": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gjs": {
+      "count": 3,
+      "typical_user": "pawanpawar"
+    },
+    "ibus-daemon": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-a11y-settings": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-color": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-datetime": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-housekeeping": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-keyboard": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-media-keys": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-power": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-disk-utility-notify": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-print-notifications": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-rfkill": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-screensaver-proxy": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-sharing": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-smartcard": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-sound": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-usb-protection": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-wwan": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "ibus-dconf": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "ibus-extension-gtk3": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "ibus-portal": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "abrt-applet": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfs-udisks2-volume-monitor": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "goa-daemon": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfs-afc-volume-monitor": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfsd-metadata": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfs-mtp-volume-monitor": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "pipewire-pulse": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "goa-identity-service": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "evolution-calendar-factory": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfs-gphoto2-volume-monitor": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gvfs-goa-volume-monitor": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "sssd_kcm": {
+      "count": 1,
+      "typical_user": "sssd"
+    },
+    "evolution-alarm-notify": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gnome-software": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "localsearch-3": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "evolution-addressbook-factory": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "xdg-desktop-portal": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "xdg-document-portal": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "fusermount3": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "xdg-desktop-portal-gnome": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "abrt-dbus": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "gvfsd-trash": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "ibus-engine-simple": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "dconf-service": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-printer": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "xdg-desktop-portal-gtk": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "kworker/u49:9-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:10-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:10-mm_percpu_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:12-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:11-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:13-rtw89_tx_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:14-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:13-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "antigravity": {
+      "count": 18,
+      "typical_user": "pawanpawar"
+    },
+    "chrome_crashpad_handler": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "Xwayland": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "gsd-xsettings": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "mutter-x11-frames": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "ibus-x11": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "ptyxis": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "ptyxis-agent": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "catatonit": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "kworker/u48:19-btrfs-endio-write": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "bash": {
+      "count": 5,
+      "typical_user": "pawanpawar"
+    },
+    "msedge": {
+      "count": 17,
+      "typical_user": "pawanpawar"
+    },
+    "cat": {
+      "count": 2,
+      "typical_user": "pawanpawar"
+    },
+    "msedge_crashpad_handler": {
+      "count": 2,
+      "typical_user": "pawanpawar"
+    },
+    "python": {
+      "count": 2,
+      "typical_user": "pawanpawar"
+    },
+    "language_server_linux_x64": {
+      "count": 2,
+      "typical_user": "pawanpawar"
+    },
+    "kworker/1:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:4-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:3-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "ibus-engine-tb": {
+      "count": 1,
+      "typical_user": "pawanpawar"
+    },
+    "kworker/8:4-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/8:5-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/8:6-cgroup_release": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "systemd-userwork:": {
+      "count": 3,
+      "typical_user": "root"
+    },
+    "kworker/10:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/10:2-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/10:5": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:2-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:3-mm_percpu_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/0:5": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/4:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/4:4": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/7:0": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/6:2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/3:2": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:0-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:1-ttm": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/u49:3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:1-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:4-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:5-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:6-mm_percpu_wq": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/9:7": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "sudo": {
+      "count": 2,
+      "typical_user": "pawanpawar"
+    },
+    "python3": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:0-events": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:1": {
+      "count": 1,
+      "typical_user": "root"
+    },
+    "kworker/2:2": {
+      "count": 1,
+      "typical_user": "root"
+    }
+  }
+}

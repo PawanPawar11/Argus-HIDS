@@ -1,10 +1,45 @@
 {
-  "created_at": "2026-01-28T09:59:16.752837",
+  "created_at": "2026-03-09T18:36:44.777268",
   "listening_ports": [
+    5355,
+    34611,
+    34779,
     53,
-    5000,
     631,
-    631
+    5355,
+    41175,
+    34081,
+    33289,
+    53,
+    43279,
+    631,
+    38251,
+    35039,
+    45661,
+    1716,
+    34119,
+    44019
   ],
-  "common_connections": {}
+  "common_connections": {
+    "2001:4860": {
+      "process": "language_server_linux_x64",
+      "count": 9
+    },
+    "2606:4700": {
+      "process": "msedge",
+      "count": 1
+    },
+    "2404:6800": {
+      "process": "language_server_linux_x64",
+      "count": 2
+    },
+    "2603:1046": {
+      "process": "msedge",
+      "count": 1
+    },
+    "2603:1040": {
+      "process": "msedge",
+      "count": 1
+    }
+  }
 }

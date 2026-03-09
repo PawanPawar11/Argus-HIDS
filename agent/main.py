@@ -272,14 +272,38 @@ class HIDSAgent:
     
     def rebuild_baseline(self):
         """
-        Rebuild file integrity baseline (for use after system updates)
+        Rebuild all baselines (file, process, and network)
         """
-        print("\n[INFO] Rebuilding file integrity baseline...")
+        print("\n" + "="*60)
+        print("[INFO] REBUILDING ALL SYSTEM BASELINES")
+        print("="*60)
+        
+        # 1. Rebuild file integrity baseline
         if self.file_monitor:
+            print("\n[1/3] Rebuilding File Integrity Baseline...")
             self.file_monitor.rebuild_baseline()
-            print("[SUCCESS] Baseline rebuilt successfully")
         else:
-            print("[ERROR] File monitor not enabled")
+            print("\n[SKIP] File monitor not enabled")
+            
+        # 2. Rebuild process baseline
+        if self.process_monitor:
+            print("\n[2/3] Rebuilding Process Baseline...")
+            self.process_monitor.create_baseline()
+            print("[SUCCESS] Process baseline rebuilt")
+        else:
+            print("\n[SKIP] Process monitor not enabled")
+            
+        # 3. Rebuild network baseline
+        if self.network_monitor:
+            print("\n[3/3] Rebuilding Network Baseline...")
+            self.network_monitor.create_baseline()
+            print("[SUCCESS] Network baseline rebuilt")
+        else:
+            print("\n[SKIP] Network monitor not enabled")
+            
+        print("\n" + "="*60)
+        print("[SUCCESS] All enabled baselines have been rebuilt.")
+        print("="*60)
     
     def start(self, skip_initial_scan=False):
         """
